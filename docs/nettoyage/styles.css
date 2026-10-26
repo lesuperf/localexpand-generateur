@@ -1016,6 +1016,43 @@ dt {
   .le-essential .le-about-image img {border-radius:0 28px 0 28px}
 }
 
+/* Colour nuances and tactile buttons: brand-tinted and purely decorative. */
+.le-essential {--glow:color-mix(in srgb,var(--primary) 14%,transparent);--glow-soft:color-mix(in srgb,var(--accent) 16%,transparent);--lift-shadow:0 12px 28px color-mix(in srgb,var(--primary) 34%,transparent)}
+body.le-essential {background-image:radial-gradient(1100px 680px at 100% 0,var(--glow),transparent 72%),radial-gradient(900px 620px at 0 42%,var(--glow-soft),transparent 72%);background-repeat:no-repeat}
+.le-essential .le-hero {background-image:radial-gradient(640px 420px at 8% 30%,var(--glow),transparent 70%)}
+.le-essential .le-services {background-image:linear-gradient(180deg,color-mix(in srgb,var(--primary) 7%,transparent),transparent 45%)}
+.le-essential .le-about {background-image:radial-gradient(760px 480px at 0 100%,var(--glow-soft),transparent 70%),radial-gradient(520px 360px at 100% 0,var(--glow),transparent 70%)}
+.le-essential .le-areas {position:relative;isolation:isolate}
+.le-essential .le-areas:before {content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;background-image:radial-gradient(color-mix(in srgb,var(--muted) 30%,transparent) 1px,transparent 1.6px);background-size:22px 22px;-webkit-mask-image:radial-gradient(70% 90% at 70% 50%,#000,transparent);mask-image:radial-gradient(70% 90% at 70% 50%,#000,transparent)}
+.le-essential .le-contact {background-image:radial-gradient(700px 460px at 88% 10%,#ffffff2e,transparent 70%),radial-gradient(760px 520px at 0 100%,#0000002e,transparent 70%)}
+.le-essential .le-footer {background-image:linear-gradient(180deg,var(--glow),transparent 260px)}
+
+.le-essential :is(.le-button,.le-header-cta,.le-mobile-contact>a,.le-contact-action) {position:relative;overflow:hidden;isolation:isolate;-webkit-tap-highlight-color:transparent;transition:transform .22s cubic-bezier(.2,.7,.3,1),box-shadow .22s,background-color .2s,filter .2s}
+.le-essential :is(.le-button,.le-header-cta,.le-mobile-contact>a,.le-contact-action):before {content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(115deg,transparent 30%,#ffffff5c 50%,transparent 70%);transform:translateX(-130%);transition:transform .65s cubic-bezier(.2,.7,.3,1)}
+.le-essential :is(.le-button,.le-header-cta,.le-mobile-contact>a,.le-contact-action):hover {transform:translateY(-2px);box-shadow:var(--lift-shadow);filter:none}
+.le-essential :is(.le-button,.le-header-cta,.le-mobile-contact>a,.le-contact-action):hover:before {transform:translateX(130%)}
+.le-essential :is(.le-button,.le-header-cta,.le-mobile-contact>a,.le-contact-action):active {transform:translateY(1px) scale(.97);box-shadow:0 3px 10px color-mix(in srgb,var(--primary) 22%,transparent);filter:brightness(.94);transition-duration:.07s}
+.le-essential .le-contact .le-contact-action:hover {box-shadow:0 14px 30px #0000003d}
+.le-essential .le-button:after,.le-essential .le-header-cta span,.le-essential .le-mobile-contact>a span {display:inline-block;transition:transform .22s cubic-bezier(.2,.7,.3,1)}
+.le-essential .le-button:hover:after,.le-essential .le-header-cta:hover span,.le-essential .le-mobile-contact>a:hover span {transform:translate(3px,-3px)}
+.le-essential .le-hero-secondary span {display:inline-block;transition:transform .22s}
+.le-essential .le-hero-secondary:hover span {transform:translateY(3px)}
+.le-essential .le-hero-secondary:active,.le-essential .le-mobile-nav summary:active {transform:scale(.97)}
+.le-essential .le-zone-list li {transition:border-color .2s,background-color .2s,transform .2s}
+.le-essential .le-zone-list li:hover {border-color:var(--primary-ink);background-color:var(--glow);transform:translateY(-2px)}
+.le-essential .le-faq summary {transition:color .2s}
+.le-essential .le-faq summary:hover {color:var(--primary-ink)}
+.le-essential .le-gallery figure {overflow:hidden;border-radius:8px}
+.le-essential .le-gallery img {transition:transform .5s cubic-bezier(.2,.7,.3,1)}
+.le-essential .le-gallery figure:hover img {transform:scale(1.04)}
+
+@media(prefers-reduced-motion:reduce) {
+  .le-essential :is(.le-button,.le-header-cta,.le-mobile-contact>a,.le-contact-action,.le-zone-list li,.le-hero-secondary,.le-mobile-nav summary):is(:hover,:active),
+  .le-essential .le-gallery figure:hover img,.le-essential :is(.le-button,.le-header-cta,.le-mobile-contact>a,.le-hero-secondary) :is(span),
+  .le-essential .le-button:hover:after {transform:none}
+  .le-essential :is(.le-button,.le-header-cta,.le-mobile-contact>a,.le-contact-action):before {display:none}
+}
+
 /* LocalExpand typeface license: geist-latin.woff2
 Copyright 2024 The Geist Project Authors (https://github.com/vercel/geist-font.git)
 
