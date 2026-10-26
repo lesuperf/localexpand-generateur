@@ -61,7 +61,7 @@ html = site.document      # page complète, prête à exporter
 | --- | --- |
 | `generation/` | Moteur : fiche entreprise, composants, styles, icônes, contrôles qualité, export. |
 | `design-assets/` | Polices embarquées (Geist, Instrument Serif, Bricolage Grotesque) et leurs licences SIL OFL. |
-| `exemples/` | Illustrations des entreprises fictives. |
+| `exemples/` | Illustrations des entreprises fictives et style de la page d’accueil des exemples. |
 | `docs/` | Sites d'exemple générés, publiés avec GitHub Pages. |
 | `tests/` | Tests automatisés du moteur. |
 

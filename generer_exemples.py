@@ -20,20 +20,57 @@ EXAMPLES=[('plombier','Plomberie','Marseille'),('garage','Garage automobile','Ly
 PHONES={'plombier':'04 65 71 00 01','garage':'04 65 71 00 02','nettoyage':'04 65 71 00 03'}
 
 
+REPOSITORY='https://github.com/lesuperf/localexpand-generateur'
+
+
 def build(output):
     if output.exists():shutil.rmtree(output)
     output.mkdir(parents=True)
-    cards=[]
+    sites=[]
     for key,label,city in EXAMPLES:
         data=json.loads((ROOT/'generation/fixtures'/f'{key}.json').read_text(encoding='utf-8'))
         data['phone']=PHONES[key]
         draft=prepare_essential(BusinessProfile.from_dict(data),demo=True)
         report=export_essential(draft,output/key,assets_root=ROOT/'exemples')
         (output/key/'qualite.json').unlink()
-        cards.append(f'<a href="{key}/index.html"><strong>{escape(data["name"])}</strong><span>{escape(label)} · {escape(city)}</span><small>{report["structure"]["passed"] and "Contrôles structurels réussis" or "À vérifier"}</small></a>')
-    (output/'index.html').write_text(f'''<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>LocalExpand — exemples de sites générés</title>
-<style>body{{margin:0;font:16px/1.6 system-ui,sans-serif;background:#141c21;color:#f4f5ef}}main{{max-width:880px;margin:auto;padding:72px 24px}}h1{{font-size:clamp(36px,6vw,64px);line-height:1.05;letter-spacing:-.04em;margin:0 0 16px}}p{{color:#bcc8cb;max-width:60ch}}nav{{display:grid;gap:14px;margin-top:40px}}a{{display:grid;gap:4px;padding:22px 26px;border:1px solid #ffffff26;border-radius:14px;color:inherit;text-decoration:none;background:#202a30}}a:hover{{border-color:#f2ca55}}strong{{font-size:22px}}span{{color:#f2ca55}}small{{color:#bcc8cb}}</style></head>
-<body><main><h1>Sites générés par LocalExpand</h1><p>Trois entreprises fictives, une seule fiche par entreprise : le moteur choisit la mise en page, les icônes et les couleurs. Aucun site n’a été retouché à la main.</p><nav>{"".join(cards)}</nav></main></body></html>''',encoding='utf-8')
+        sites.append({'key':key,'name':data['name'],'trade':f'{label} · {city}','accent':draft.profile.visuals.primary,
+                      'passed':report['structure']['passed']})
+    return sites
+
+
+def thumbnails(output):
+    """Small JPEG previews for the showcase cards; skipped without Playwright."""
+    try:
+        from playwright.sync_api import sync_playwright
+    except ImportError:
+        return False
+    (output/'apercus').mkdir(exist_ok=True)
+    with sync_playwright() as pw:
+        browser=pw.chromium.launch()
+        page=browser.new_page(viewport={'width':1280,'height':800})
+        for key,_,_ in EXAMPLES:
+            page.goto((output/key/'index.html').as_uri(),wait_until='load')
+            page.evaluate('document.fonts.ready')
+            page.screenshot(path=str(output/'apercus'/f'{key}.jpg'),type='jpeg',quality=78)
+        browser.close()
+    return True
+
+
+def showcase(output,sites):
+    shutil.copy2(ROOT/'exemples/vitrine.css',output/'vitrine.css')
+    cards=[]
+    for site in sites:
+        shot=output/'apercus'/f'{site["key"]}.jpg'
+        image=f'<div class="shot"><img src="apercus/{site["key"]}.jpg" alt="" width="1280" height="800" loading="lazy"></div>' if shot.exists() else ''
+        status='Contrôles qualité réussis' if site['passed'] else 'À vérifier'
+        cards.append(f'<a class="card" style="--accent:{site["accent"]}" href="{site["key"]}/index.html">{image}<div class="body"><strong>{escape(site["name"])}</strong><span class="trade">{escape(site["trade"])}</span><small>{status}</small></div></a>')
+    (output/'index.html').write_text(f'''<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>LocalExpand — exemples de sites générés</title><meta name="description" content="Trois sites vitrines générés automatiquement par LocalExpand à partir d’une simple fiche entreprise."><link rel="stylesheet" href="vitrine.css"></head>
+<body><main><p class="eyebrow">Générateur de sites · Exemples</p><h1>Sites générés par <em>LocalExpand</em></h1>
+<p class="intro">Trois entreprises fictives, une seule fiche par entreprise. Le moteur choisit la mise en page, les icônes et les couleurs, puis vérifie chaque site dans un vrai navigateur. Aucun site n’a été retouché à la main.</p>
+<div class="actions"><a class="btn" href="#exemples">Voir les exemples <span aria-hidden="true">↓</span></a><a class="btn ghost" href="{REPOSITORY}">Voir le code sur GitHub <span aria-hidden="true">↗</span></a></div>
+<ul class="stats"><li><strong>3</strong>métiers différents</li><li><strong>0</strong>retouche manuelle</li><li><strong>5</strong>largeurs d’écran contrôlées</li><li><strong>0</strong>ligne de JavaScript dans les sites</li></ul>
+<nav class="grid" id="exemples" aria-label="Exemples de sites">{"".join(cards)}</nav></main>
+<footer>Entreprises, coordonnées et illustrations fictives · © 2026 Florian Husaj</footer></body></html>''',encoding='utf-8')
 
 
 def captures(output,folder):
@@ -57,7 +94,9 @@ def main():
     parser.add_argument('--verifier',action='store_true')
     args=parser.parse_args()
     output=ROOT/'docs'
-    build(output)
+    sites=build(output)
+    if not thumbnails(output):print('Playwright absent : page d’accueil sans aperçus.')
+    showcase(output,sites)
     print('Sites générés dans docs/')
     if args.captures:
         captures(output,ROOT/'captures');print('Captures dans captures/')
