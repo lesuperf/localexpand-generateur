@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "name": "Garage Sillage",
+  "profession": "Garage automobile",
+  "city": "Lyon",
+  "headline": "Votre voiture mérite un vrai suivi.",
+  "description": "Garage Sillage est un atelier automobile de proximité à Lyon. Nous accompagnons l’entretien de votre véhicule et examinons avec vous les interventions à prévoir, en fonction de son état et de votre utilisation.\n\nIl s’agit d’une entreprise fictive de démonstration : aucun agrément, avis client ou travail réalisé n’est revendiqué.",
+  "email": "atelier@garage-sillage.example.test",
+  "services": [
+    {"title":"Entretien courant", "description":"Vidange, filtres et contrôles d’entretien : décrivez votre véhicule et son kilométrage pour préparer votre passage à l’atelier."},
+    {"title":"Diagnostic automobile", "description":"Un voyant, un bruit ou un changement de comportement ? Expliquez les symptômes pour orienter l’examen de votre véhicule."},
+    {"title":"Freinage", "description":"Parlons de l’état de vos freins et des vérifications nécessaires avant d’envisager le remplacement des pièces concernées."},
+    {"title":"Pneumatiques", "description":"Usure, dimensions et utilisation du véhicule : échangeons sur vos besoins de contrôle ou de remplacement des pneus."}
+  ],
+  "areas": ["Lyon", "Villeurbanne", "Caluire-et-Cuire"],
+  "images": [{"src":"assets/garage.png","alt":"Illustration générée d’un atelier sombre avec roue automobile, disque de frein et éclairage ambré.","role":"hero"}],
+  "additional_information": {"À l’atelier":"Entretien et diagnostic automobile", "Préparer votre demande":"Modèle du véhicule, kilométrage et symptômes", "visuels_demonstration":"oui"}
+}

@@ -1,0 +1,80 @@
+/* Essentiel uses the same components as the foundation; no profession selectors. */
+.le-essential {font-size:16px;line-height:1.75}
+.le-essential .le-wrap {width:min(1240px,calc(100% - 96px))}
+.le-essential .le-preview-note {padding:7px 20px;font-size:10px;letter-spacing:.07em}
+.le-essential .le-header {padding:25px 0;border-bottom:1px solid color-mix(in srgb,var(--muted) 25%,transparent)}
+.le-essential .le-header>.le-wrap {gap:40px}
+.le-essential .le-brand {font-size:20px;letter-spacing:-.05em;max-width:36%}
+.le-essential .le-header-brand {flex:0 1 34%;min-width:0}
+.le-essential .le-header-brand .le-brand,.le-essential .le-footer .le-brand {max-width:100%}
+@media(max-width:1050px){.le-essential .le-header-brand{flex:1 1 auto;max-width:calc(100% - 80px)}}
+.le-essential .le-brand:before {content:'↗';display:grid;place-items:center;background:var(--primary);color:var(--on-primary);width:38px;height:38px;flex:none;border-radius:var(--radius);font-size:23px}
+.le-essential .le-brand:has(img):before {display:none}
+.le-essential .le-desktop-nav {max-width:65%}
+.le-essential .le-desktop-nav nav {gap:0 22px;justify-content:flex-end}
+.le-essential .le-header nav a {font-size:11px;text-decoration:none;font-weight:600}
+.le-essential .le-header nav a:hover {text-decoration:underline}
+.le-mobile-nav {display:none}
+.le-essential .le-hero {padding:62px 0 76px}
+.le-essential .le-hero>.le-wrap {grid-template-columns:minmax(0,1.04fr) minmax(0,1fr);gap:65px}
+.le-essential .le-eyebrow {font-size:10px;text-transform:uppercase;letter-spacing:.16em;font-weight:700;margin-bottom:23px}
+.le-essential .le-hero h1 {font-size:clamp(42px,5.7vw,88px);line-height:1.01;letter-spacing:-.065em;max-width:15ch}
+.le-essential .le-lead {color:var(--muted);font-size:15px;line-height:1.85;max-width:50ch;margin:28px 0}
+.le-essential .le-button {padding:15px 25px;font-size:12px;min-height:52px;border-radius:var(--radius)}
+.le-essential .le-button:after {content:'↗';margin-left:35px;font-size:20px;line-height:1}
+.le-essential .le-hero-image {position:relative;overflow:hidden;border-radius:var(--radius);background:var(--surface)}
+.le-essential .le-hero-image img {aspect-ratio:4/4.7;object-fit:cover;object-position:50% 50%}
+.le-essential .le-hero-image figcaption {position:absolute;bottom:12px;left:12px;right:12px;padding:7px 10px;background:#ffffffed;color:#172b25;font-size:9px;line-height:1.5;border-radius:3px}
+.le-essential .le-hero--centered>.le-wrap {display:flex;gap:36px}
+.le-essential .le-hero--centered h1 {max-width:17ch;font-size:clamp(44px,6vw,90px)}
+.le-essential .le-hero--centered .le-lead {max-width:64ch}
+.le-essential .le-hero--centered .le-hero-image {max-width:none;width:100%}
+.le-essential .le-hero--centered .le-hero-image img {aspect-ratio:2.65/1;object-position:center 57%}
+.le-essential .le-section {padding:76px 0}
+.le-essential h2 {max-width:23ch;font-size:clamp(30px,3.6vw,53px);line-height:1.1;letter-spacing:-.055em;margin-bottom:38px}
+.le-essential .le-services {background:var(--surface)}
+.le-essential .le-card {position:relative;border:1px solid color-mix(in srgb,var(--muted) 30%,transparent);border-top:1px solid color-mix(in srgb,var(--muted) 30%,transparent);padding:29px;display:flex;flex-direction:column;min-height:290px}
+.le-service-number {display:block;font-size:10px;letter-spacing:.12em;color:var(--muted);margin-bottom:34px}
+.le-essential .le-services h3 {font-size:24px;letter-spacing:-.04em}
+.le-essential .le-services p {font-size:13px;line-height:1.8}
+.le-service-link {font-size:11px;font-weight:700;display:inline-flex;justify-content:space-between;align-items:center;min-height:44px;gap:18px;text-decoration:none;margin-top:auto;padding-top:25px}
+.le-essential .le-services--list ol {list-style:none;padding:0}
+.le-essential .le-services--list li {display:grid;grid-template-columns:45px minmax(0,1fr) minmax(0,1fr) 150px;align-items:center;gap:28px;padding:29px 0;border-color:color-mix(in srgb,var(--muted) 30%,transparent)}
+.le-essential .le-services--list h3,.le-essential .le-services--list .le-service-number {margin:0}
+.le-essential .le-services--list .le-service-link {padding:0;margin:0}
+.le-essential .le-about--panel>.le-wrap {background:var(--accent);color:var(--on-accent);padding:55px;border-radius:var(--radius);display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:70px}
+.le-essential .le-about h2 {margin:0}.le-essential .le-prose {font-size:15px}
+.le-essential .le-facts {font-size:12px;margin:24px 0 0}.le-essential .le-facts>div {border-color:color-mix(in srgb,var(--muted) 35%,transparent)}
+.le-essential .le-benefits-items {margin:0}.le-essential .le-benefits--list li {padding:11px 0;font-size:14px}
+.le-essential .le-benefits--cards li {font-size:16px;line-height:1.6}
+.le-essential .le-zone-list {gap:9px}.le-essential .le-zone-list li {font-size:12px;border-radius:30px;padding:9px 20px}
+.le-essential .le-faq {border-top:1px solid color-mix(in srgb,var(--muted) 25%,transparent)}
+.le-essential .le-faq>.le-wrap {display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:70px}
+.le-essential .le-faq details {padding:15px 0;border-color:color-mix(in srgb,var(--muted) 30%,transparent)}
+.le-essential .le-faq summary {font-size:14px;padding:12px 0}.le-essential .le-faq details p {font-size:13px;color:var(--muted);padding:0 0 18px}
+.le-essential .le-contact {background:var(--primary);color:var(--on-primary)}
+.le-essential .le-contact h2 {font-size:clamp(35px,4.5vw,66px);max-width:17ch}
+.le-essential .le-contact-layout {align-items:end;gap:100px}.le-essential .le-contact-copy p {font-size:14px;max-width:50ch;margin-bottom:24px}
+.le-essential .le-contact-links {gap:6px}.le-essential .le-contact-links a {font-size:clamp(14px,2vw,24px);font-weight:600;text-decoration:none;min-height:44px}
+.le-essential .le-contact-links a:hover {text-decoration:underline}
+.le-contact-aside {border-left:1px solid currentColor;padding-left:30px}.le-contact-aside p {font-family:var(--heading-font);font-size:28px;letter-spacing:-.04em}
+.le-contact-aside small {display:block;line-height:1.8;margin-top:12px;font-size:12px}.le-essential .le-contact-aside .le-eyebrow {color:inherit;opacity:.85}
+.le-essential .le-contact--compact .le-contact-layout {max-width:none;display:grid;grid-template-columns:1.2fr .8fr}
+.le-essential .le-footer {padding:45px 0 20px;border:0}.le-essential .le-footer nav a {font-size:11px;min-height:35px}
+.le-essential .le-footer .le-contact-links a {font-size:12px}.le-essential .le-footer-note {border-color:color-mix(in srgb,var(--muted) 30%,transparent)}
+.le-essential .le-footer-note a,.le-essential .le-footer-note small {font-size:10px}
+.le-essential[data-theme=contraste] .le-hero h1 {font-weight:800;letter-spacing:-.065em}
+.le-essential[data-theme=contraste] .le-hero-image {border-radius:0}
+.le-essential[data-theme=contraste] .le-services,.le-essential[data-theme=contraste] .le-faq {background:var(--paper)}
+.le-essential[data-theme=contraste] .le-about {background:var(--surface)}
+.le-essential[data-theme=editorial] .le-header--stacked>.le-wrap {display:flex;justify-content:space-between;align-items:center}
+.le-essential[data-theme=editorial] .le-header--stacked nav {margin:0;padding:0;border:0}
+.le-essential[data-theme=editorial] .le-hero {padding-top:65px}
+.le-essential[data-theme=editorial] .le-hero h1 {font-weight:400;letter-spacing:-.055em}
+.le-essential[data-theme=editorial] .le-services {background:var(--paper)}
+.le-essential[data-theme=editorial] .le-card {border:0;border-top:1px solid var(--muted);padding-left:0;padding-right:24px;border-radius:0}
+.le-essential[data-theme=editorial] .le-about {background:var(--surface)}
+@media(max-width:1050px){.le-essential .le-wrap{width:calc(100% - 48px)}.le-essential .le-header>.le-wrap{flex-direction:row;gap:25px}.le-essential .le-desktop-nav{display:none}.le-mobile-nav{display:block;position:relative}.le-mobile-nav summary{font-size:12px;list-style:none;cursor:pointer;min-height:44px;display:flex;align-items:center;gap:25px}.le-mobile-nav summary::-webkit-details-marker{display:none}.le-essential .le-mobile-nav nav{position:absolute;right:0;top:46px;width:min(300px,calc(100vw - 48px));padding:18px!important;border:1px solid var(--muted)!important;background:var(--surface);color:var(--ink);z-index:20;box-shadow:0 12px 24px #0002;display:flex;flex-direction:column;align-items:stretch;gap:0}.le-essential .le-mobile-nav nav a{font-size:12px;min-height:44px}.le-essential .le-brand{max-width:72%}.le-essential .le-hero>.le-wrap{gap:30px}.le-essential .le-hero h1{font-size:clamp(40px,6vw,65px)}.le-essential .le-services--list li{grid-template-columns:28px 1fr 1fr;gap:18px}.le-essential .le-services--list .le-service-link{grid-column:2/-1;justify-content:flex-start}.le-essential .le-faq>.le-wrap{gap:35px}.le-essential .le-contact-layout{gap:40px}}
+@media(max-width:700px){.le-essential .le-wrap{width:calc(100% - 36px)}.le-essential .le-hero{padding:35px 0 48px}.le-essential .le-hero>.le-wrap{grid-template-columns:1fr;gap:32px}.le-essential .le-header{padding:15px 0}.le-essential .le-brand{font-size:16px}.le-essential .le-brand:before{width:32px;height:32px;font-size:20px}.le-essential .le-hero h1,.le-essential .le-hero--centered h1{font-size:clamp(39px,10.6vw,58px);line-height:1.04;max-width:17ch}.le-essential .le-lead{font-size:14px;line-height:1.8;margin:22px 0}.le-essential .le-hero-image img{aspect-ratio:4/3}.le-essential .le-hero--centered .le-hero-image img{aspect-ratio:4/3}.le-essential .le-hero-image figcaption{font-size:8px}.le-essential .le-section{padding:50px 0}.le-essential h2{font-size:34px;margin-bottom:27px}.le-essential .le-services--list li{grid-template-columns:28px minmax(0,1fr);gap:10px 16px}.le-essential .le-services--list li p,.le-essential .le-services--list .le-service-link{grid-column:2}.le-essential .le-services--list h3{font-size:25px}.le-essential .le-card{min-height:250px;padding:25px}.le-essential .le-service-number{margin-bottom:25px}.le-essential .le-about--panel>.le-wrap{grid-template-columns:1fr;padding:30px;gap:28px}.le-essential .le-about--editorial>.le-wrap,.le-essential .le-faq>.le-wrap,.le-essential .le-contact-layout,.le-essential .le-contact--compact .le-contact-layout{grid-template-columns:1fr;gap:30px}.le-essential .le-about h2{margin-bottom:0}.le-essential .le-contact-links a{font-size:17px}.le-contact-aside{padding:20px 0 0;border-left:0;border-top:1px solid currentColor}.le-contact-aside p{font-size:23px}.le-essential .le-footer .le-brand{max-width:100%}.le-essential .le-preview-note{font-size:8px;padding:7px 12px}.le-essential .le-footer-grid{gap:25px}}
+/* Supplied legal text stays readable without JavaScript or a separate page. */
+.le-legal{margin:18px 0;font-size:14px;line-height:1.7}.le-legal summary{cursor:pointer;padding:12px 0}.le-legal p{white-space:pre-wrap;overflow-wrap:anywhere;max-width:80ch;margin:12px 0}

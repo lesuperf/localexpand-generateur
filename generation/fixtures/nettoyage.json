@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "name": "Maison Claire",
+  "profession": "Nettoyage professionnel",
+  "city": "Montpellier",
+  "headline": "Des lieux propres. Des journées plus légères.",
+  "description": "Maison Claire accompagne l’entretien des espaces professionnels à Montpellier. Bureaux, parties communes ou locaux après travaux : nous discutons avec vous des surfaces, des usages et du rythme d’intervention souhaité.\n\nCette présentation décrit une entreprise fictive. Le visuel est une illustration d’ambiance et ne représente pas une réalisation client.",
+  "email": "bonjour@maison-claire.example.test",
+  "services": [
+    {"title":"Bureaux & espaces de travail", "description":"Un entretien pensé autour de vos espaces de travail. Précisez les surfaces, les zones concernées et la fréquence dont vous avez besoin."},
+    {"title":"Parties communes", "description":"Halls, escaliers et espaces partagés : définissons ensemble les lieux à entretenir et les modalités d’accès."},
+    {"title":"Après les travaux", "description":"Préparez la remise en usage de vos locaux en nous décrivant les travaux réalisés et le nettoyage à envisager."}
+  ],
+  "areas": ["Montpellier", "Castelnau-le-Lez", "Lattes"],
+  "images": [{"src":"assets/nettoyage.png","alt":"Illustration générée d’un espace de bureau lumineux, de verre, de textiles et d’accessoires d’entretien verts.","role":"hero"}],
+  "additional_information": {"Vos espaces":"Bureaux, copropriétés et locaux professionnels", "Pour préparer notre échange":"Surfaces, accès et fréquence souhaitée", "visuels_demonstration":"oui"}
+}

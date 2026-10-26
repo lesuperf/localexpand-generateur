@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "name": "Atelier Nérée",
+  "profession": "Plomberie & sanitaire",
+  "city": "Marseille",
+  "headline": "Une plomberie qui vous simplifie la vie.",
+  "description": "Atelier Nérée accompagne les particuliers dans leurs projets de plomberie et d’aménagement sanitaire à Marseille. Une fuite à comprendre, une installation à remplacer ou une salle de bain à repenser : nous prenons le temps de parler de votre besoin.\n\nCette entreprise et les prestations décrites constituent une fiche fictive conçue pour démontrer le moteur LocalExpand.",
+  "email": "bonjour@atelier-neree.example.test",
+  "services": [
+    {"title":"Dépannage plomberie", "description":"Une fuite ou un équipement qui fonctionne mal ? Présentez-nous la situation pour préparer une intervention adaptée à votre installation."},
+    {"title":"Installation sanitaire", "description":"Robinetterie, lavabo ou douche : parlons de vos équipements et des raccordements nécessaires à votre projet."},
+    {"title":"Rénovation de salle de bain", "description":"Repensez l’organisation de votre salle de bain. Échangeons sur vos usages, l’espace disponible et les travaux de plomberie à prévoir."}
+  ],
+  "areas": ["Marseille", "Allauch", "Plan-de-Cuques"],
+  "images": [{"src":"assets/plombier.png","alt":"Illustration générée d’un espace sanitaire en pierre claire, avec robinetterie et tuyauterie en laiton.","role":"hero"}],
+  "additional_information": {"Notre activité":"Plomberie et équipements sanitaires", "Pour qui ?":"Particuliers", "visuels_demonstration":"oui"}
+}
